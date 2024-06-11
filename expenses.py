@@ -9,7 +9,7 @@ class Expense:
     self.date = self.validate_date(date) if date else datetime.date.today()
 
   def __str__(self):
-    return f'Date: {self.date.strftime('%d/%m/%Y')}\tDescription: {self.description}\tAmount: ${self.amount:.2f}\tCategory: {self.category}'
+    return f'Date: {self.date.strftime("%d/%m/%Y")}\tDescription: {self.description}\tAmount: ${self.amount:.2f}\tCategory: {self.category}'
 
   def __eq__(self, other):
     if self.description != other.description:

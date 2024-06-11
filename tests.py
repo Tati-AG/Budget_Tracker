@@ -115,8 +115,8 @@ def test_save_to_file():
   budget.add_expense(Expense('Monthly metro pass', 45.0, 'Transport', '01/06/2024'))
   budget.add_expense(Expense('Weekly grocery shopping', 52.7, 'Groceries', '06/06/2024'))
   budget.add_expense(Expense('Taxi fare', 12.57, 'Transport'))
-  budget.save_to_file('my_budget')
-  with open('my_budget', 'r') as f:
+  budget.save_to_file('my_budget.json')
+  with open('my_budget.json', 'r') as f:
     expenses_data = json.load(f)
     assert expenses_data == [{'description': 'Monthly metro pass', 'amount': 45.0, 'category': 'Transport', 'date': '01/06/2024'},
                             {'description': 'Weekly grocery shopping', 'amount': 52.7, 'category': 'Groceries', 'date': '06/06/2024'},
@@ -128,5 +128,5 @@ def test_read_from_file():
   budget.add_expense(Expense('Weekly grocery shopping', 52.7, 'Groceries', '06/06/2024'))
   budget.add_expense(Expense('Taxi fare', 12.57, 'Transport'))
   file_budget = Expenses_Manager()
-  file_budget.load_from_file('my_budget')
+  file_budget.load_from_file('my_budget.json')
   assert budget.expenses == file_budget.expenses
